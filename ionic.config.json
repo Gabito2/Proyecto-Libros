@@ -1,0 +1,7 @@
+{
+  "name": "Gestor_de_Libros",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
