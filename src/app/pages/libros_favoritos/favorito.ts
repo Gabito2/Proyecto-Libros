@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { BehaviorSubject, Observable, startWith, switchMap, map } from 'rxjs';
-import { Libro } from '../model/libro';
-import { LibroService } from '../service/libro-service';
+import { Libro } from '../../model/libro';
+import { LibroService } from '../../service/libro-service';
 import { addIcons } from 'ionicons';
 import { heart, heartOutline } from 'ionicons/icons';
 import {

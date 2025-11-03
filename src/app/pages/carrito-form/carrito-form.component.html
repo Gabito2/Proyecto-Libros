@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registrar Venta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="save()" class="ion-padding">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Fecha</ion-label>
+        <ion-input type="date" formControlName="date"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Cliente</ion-label>
+        <ion-input formControlName="customer" placeholder="Nombre del cliente"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <div class="ion-padding-top">
+      <h2>Ítems</h2>
+
+      <ion-list>
+        <ng-container *ngFor="let g of items.controls; let i = index; trackBy: trackByIndex">
+          <ion-item>
+            <ion-label position="stacked">Producto</ion-label>
+            <ion-select interface="popover" [formControl]="$any(g.get('productId'))" (ionChange)="onProductChange(i)">
+              <ion-select-option *ngFor="let p of libros()" [value]="p.id">
+                {{ p.titulo }} ({{ p.precio | currency:'ARS':'symbol-narrow' }})
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Cantidad</ion-label>
+            <ion-input type="number" [formControl]="$any(g.get('quantity'))" (ionInput)="recalc(i)"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Precio Unitario</ion-label>
+            <ion-input type="number" [formControl]="$any(g.get('unitPrice'))" (ionInput)="recalc(i)"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Subtotal:</ion-label>
+            <ion-input [value]="g.get('subtotal')?.value" ></ion-input>
+          </ion-item>
+
+          <div class="ion-padding-bottom">
+            <ion-button color="danger" fill="clear" (click)="removeItem(i)">
+              <ion-icon name="remove-circle"></ion-icon> Quitar
+            </ion-button>
+          </div>
+        </ng-container>
+      </ion-list>
+
+      <ion-item>
+        <ion-label>Total:</ion-label>
+        <ion-input [value]="total()"></ion-input>
+      </ion-item>
+
+      <ion-button (click)="addItem()">
+        <ion-icon name="add-circle"></ion-icon> Agregar Libro
+      </ion-button>
+    </div>
+
+    <div class="ion-padding">
+      <ion-button type="submit" [disabled]="form.invalid || items.length === 0" expand="block">
+        Guardar Venta
+      </ion-button>
+
+      <ion-button fill="clear" color="medium" expand="block" (click)="cancel()">
+        Cancelar
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

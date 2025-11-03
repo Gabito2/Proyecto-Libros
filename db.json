@@ -1,26 +1,108 @@
 {
   "libros": [
     {
-      "id": "19d6",
-      "titulo": "Hora de Aventura",
-      "autor": " Pendleton Ward, Rebecca Sugar, Niki Yang, Steve Little",
-      "editorial": "S/N",
-      "fecha_publicacion": "2011-03-09",
-      "genero": "Aventura",
-      "stock": 100,
-      "image_url": "https://www.noroeste.com.mx/binrepository/600x391/0c0/0d0/none/12707/BWWS/hora_de_aventura-63201_NO1037260_MG8167252.jpg",
-      "favorito": false
+      "id": "c216",
+      "titulo": "Harry Potter y la piedra filosofal",
+      "autor": "J. K. Rowling ",
+      "editorial": "No se",
+      "fecha_publicacion": "1997-06-26",
+      "genero": "Magia",
+      "stock": 1923,
+      "image_url": "https://imgv2-1-f.scribdassets.com/img/word_document/636301739/original/ea34c38b70/1?v=1",
+      "favorito": false,
+      "precio": 1999
     },
     {
-      "id": "2415",
-      "titulo": "Cien años de soledad",
-      "autor": "Gabriel García Márquez",
-      "editorial": " Planeta Mexicana, S.A. de C.V.",
-      "fecha_publicacion": "2007-03-08",
-      "genero": "Ciencia Ficción",
-      "stock": 1,
-      "image_url": "https://images.theconversation.com/files/637525/original/file-20241210-15-2k347s.jpg?ixlib=rb-4.1.0&q=45&auto=format&w=1000&fit=clip",
-      "favorito": true
+      "id": "889e",
+      "titulo": "Witch & Wizard",
+      "autor": "James Patterson y Gabrielle Charbonnet.",
+      "editorial": "no se",
+      "fecha_publicacion": "2009-05-05",
+      "genero": "Fantasía",
+      "stock": 999,
+      "image_url": "https://http2.mlstatic.com/D_NQ_NP_336201-MLA20289373283_042015-O.webp",
+      "favorito": false,
+      "precio": 2500
+    },
+    {
+      "id": "9911",
+      "titulo": "El señor de los anillos ",
+      "autor": "J. R. R. Tolkien",
+      "editorial": "no se",
+      "fecha_publicacion": "1954-07-29",
+      "genero": "Historia",
+      "stock": 10,
+      "image_url": "https://hips.hearstapps.com/hmg-prod/images/el-sen-or-de-los-anillos-los-anillos-de-poder-66d6de11d8885.jpg",
+      "favorito": true,
+      "precio": 7999
+    }
+  ],
+  "carrito": [
+    {
+      "id": "9a48",
+      "date": "2025-11-03",
+      "customer": "Gabriel",
+      "items": [
+        {
+          "productId": "889e",
+          "name": "Witch & Wizard",
+          "quantity": 3,
+          "unitPrice": 2500,
+          "subtotal": 7500
+        },
+        {
+          "productId": "c216",
+          "name": "Harry Potter y la piedra filosofal",
+          "quantity": 4,
+          "unitPrice": 1999,
+          "subtotal": 7996
+        }
+      ],
+      "total": 15496
+    },
+    {
+      "id": "cb22",
+      "date": "2025-11-03",
+      "customer": "Gabito",
+      "items": [
+        {
+          "productId": "889e",
+          "name": "Witch & Wizard",
+          "quantity": 6,
+          "unitPrice": 2500,
+          "subtotal": 15000
+        }
+      ],
+      "total": 15000
+    },
+    {
+      "id": "13aa",
+      "date": "2025-11-03",
+      "customer": "Gabriel",
+      "items": [
+        {
+          "productId": "9911",
+          "name": "El señor de los anillos ",
+          "quantity": 3,
+          "unitPrice": 7999,
+          "subtotal": 23997
+        },
+        {
+          "productId": "889e",
+          "name": "Witch & Wizard",
+          "quantity": 2,
+          "unitPrice": 2500,
+          "subtotal": 5000
+        },
+        {
+          "productId": "c216",
+          "name": "Harry Potter y la piedra filosofal",
+          "quantity": 4,
+          "unitPrice": 1999,
+          "subtotal": 7996
+        }
+      ],
+      "total": 36993
     }
   ]
 }

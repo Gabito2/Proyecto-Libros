@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Carrito</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ion-padding">
+    <ion-item *ngFor="let s of sales(); trackBy: trackById" [routerLink]="['/carrito', s.id]">
+      <ion-label>
+        <h2>{{ s.customer }}</h2>
+        <p>{{ s.date }} — {{ s.items.length }} ítems</p>
+      </ion-label>
+      <ion-note slot="end">Total: {{ s.total | currency:'ARS':'symbol-narrow' }}</ion-note>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/carrito-form">
+      <ion-icon name="wallet"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

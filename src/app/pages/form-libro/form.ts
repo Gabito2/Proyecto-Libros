@@ -5,13 +5,13 @@ import {
   IonButtons, IonBackButton, IonList, IonItem, IonLabel,
   IonInput, IonButton, IonSelect, IonSelectOption
 } from '@ionic/angular/standalone';
-import { LibroService } from '../service/libro-service';
+import { LibroService } from '../../service/libro-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of, switchMap } from 'rxjs';
-import { Libro } from '../model/libro';
+import { Libro } from '../../model/libro';
 
 @Component({
-  selector: 'app-añadir',
+  selector: 'app-add',
   templateUrl: 'form.html',
   styleUrls: ['form.scss'],
   imports: [
@@ -20,7 +20,7 @@ import { Libro } from '../model/libro';
     IonInput, IonButton, IonSelect, IonSelectOption
   ],
 })
-export class Form {
+export class FormPage {
 
   private formbuilder = inject(FormBuilder);
   private service = inject(LibroService);
@@ -38,6 +38,7 @@ export class Form {
     stock: [0, [Validators.required, Validators.min(0)]],
     image_url: [''],
     favorito: [false],
+    precio: [0, [Validators.required, Validators.min(0)]]
   });
 
   ngOnInit(): void {
@@ -81,7 +82,8 @@ export class Form {
       genero: raw.genero!,
       stock: raw.stock!,
       image_url: raw.image_url!,
-      favorito: raw.favorito!
+      favorito: raw.favorito!,
+      precio: raw.precio!
     };
 
     const obs = this.id == null

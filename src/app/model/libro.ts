@@ -8,4 +8,5 @@ export interface Libro {
     stock: number;
     image_url: string;
     favorito: boolean;
+    precio: number;
 }

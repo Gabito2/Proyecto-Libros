@@ -2,18 +2,18 @@ import { Component, inject } from '@angular/core';
 import {
   IonHeader, IonToolbar, IonTitle, IonContent, IonSearchbar,
   IonRefresher, IonRefresherContent, IonList, IonItem, IonLabel,
-  IonButton, IonIcon, IonImg, IonSegment, IonSegmentButton
+  IonButton, IonIcon, IonImg
 } from '@ionic/angular/standalone';
-import { LibroService } from '../service/libro-service';
+import { LibroService } from '../../service/libro-service';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, startWith, switchMap, map } from 'rxjs';
-import { Libro } from '../model/libro';
+import { Libro } from '../../model/libro';
 import { AsyncPipe, NgFor, DatePipe } from '@angular/common';
 import { addIcons } from 'ionicons';
 import { heart, heartOutline, trash } from 'ionicons/icons';
 
 @Component({
-  selector: 'app-biblioteca',
+  selector: 'app-list-libro',
   templateUrl: 'biblioteca.html',
   styleUrls: ['biblioteca.scss'],
   imports: [
@@ -23,7 +23,7 @@ import { heart, heartOutline, trash } from 'ionicons/icons';
     NgFor, AsyncPipe, IonImg, DatePipe
   ]
 })
-export class Biblioteca {
+export class BibliotecaPage {
 
   private service = inject(LibroService);
   private router = inject(Router);
@@ -88,7 +88,6 @@ export class Biblioteca {
       error: err => console.error(err)
     });
   }
-
 
   filtrarFavoritos(event: any) {
     this.mostrarSoloFavoritos = event.detail.value === 'favoritos';

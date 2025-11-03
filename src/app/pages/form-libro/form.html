@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/libros"></ion-back-button>
+      <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
     <ion-title>{{ id ? 'Editar libro' : 'Nuevo libro' }}</ion-title>
   </ion-toolbar>
@@ -52,6 +52,12 @@
       <ion-item>
         <ion-input label="Stock" labelPlacement="floating" type="number" formControlName="stock"
           placeholder="Cantidad disponible">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Precio" labelPlacement="floating" type="number" formControlName="precio"
+          placeholder="Ingrese el precio">
         </ion-input>
       </ion-item>
 

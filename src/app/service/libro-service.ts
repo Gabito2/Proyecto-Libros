@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Libro } from '../model/libro';
-import { catchError, map, Observable, throwError } from 'rxjs';
+import { catchError, map, Observable, of, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,7 @@ export class LibroService {
 
   private http = inject(HttpClient);
   private baseUrl = `${environment.api}/libros`;
+
 
   private date_to_iso(date: Date | string): string {
     const dt = (date instanceof Date) ? date : new Date(date);

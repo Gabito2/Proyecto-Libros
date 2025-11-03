@@ -19,6 +19,7 @@
         <p><strong>Autor:</strong> {{ libro.autor }}</p>
         <p><strong>Género:</strong> {{ libro.genero }}</p>
         <p><strong>Publicación:</strong> {{ libro.fecha_publicacion | date }}</p>
+        <p><strong>Precio:</strong> ${{ libro.precio }}</p>
 
         <div class="img-container">
           <ion-img [src]="libro.image_url"></ion-img>
