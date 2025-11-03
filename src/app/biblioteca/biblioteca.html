@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Biblioteca</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-searchbar placeholder="Buscar libro..." (ionInput)="onSearch($event)">
+  </ion-searchbar>
+
+  <ion-refresher slot="fixed" (ionRefresh)="refresh_Done($event.target)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+    <ion-item button detail="true" *ngFor="let libro of (libros$ | async)!" (click)="update(libro)">
+      <ion-label class="libro-label">
+        <h2><strong>Título:</strong> {{ libro.titulo }}</h2>
+        <p><strong>Autor:</strong> {{ libro.autor }}</p>
+        <p><strong>Género:</strong> {{ libro.genero }}</p>
+        <p><strong>Publicación:</strong> {{ libro.fecha_publicacion | date }}</p>
+
+        <div class="img-container">
+          <ion-img [src]="libro.image_url"></ion-img>
+        </div>
+
+        <div class="button-group">
+          <ion-button color="danger" (click)="$event.stopPropagation(); delete(libro)">
+            <ion-icon name="trash"></ion-icon>
+            Eliminar
+          </ion-button>
+
+          <ion-button color="success" (click)="$event.stopPropagation(); toggleFavorito(libro)">
+            <ion-icon [name]="libro.favorito ? 'heart' : 'heart-outline'"></ion-icon>
+            {{ libro.favorito ? 'Quitar de Favoritos' : 'Agregar a Favoritos' }}
+          </ion-button>
+        </div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

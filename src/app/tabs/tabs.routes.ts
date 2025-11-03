@@ -6,31 +6,17 @@ export const routes: Routes = [
     path: 'tabs',
     component: TabsPage,
     children: [
-      {
-        path: 'tab1',
-        loadComponent: () =>
-          import('../tab1/tab1.page').then((m) => m.Tab1Page),
-      },
-      {
-        path: 'tab2',
-        loadComponent: () =>
-          import('../tab2/tab2.page').then((m) => m.Tab2Page),
-      },
-      {
-        path: 'tab3',
-        loadComponent: () =>
-          import('../tab3/tab3.page').then((m) => m.Tab3Page),
-      },
-      {
-        path: '',
-        redirectTo: '/tabs/tab1',
-        pathMatch: 'full',
-      },
+      { path: 'home', loadComponent: () => import('../pagina_principal/pagina_principal').then(m => m.Principal) },
+      { path: 'biblioteca', loadComponent: () => import('../biblioteca/biblioteca').then(m => m.Biblioteca) },
+      { path: 'biblioteca/:id', loadComponent: () => import('../form/form').then(m => m.Form) },
+      { path: 'form', loadComponent: () => import('../form/form').then(m => m.Form) },
+      { path: 'favorito', loadComponent: () => import('../libros_favoritos/favorito').then(m => m.Favorito) },
+      { path: '', redirectTo: '/tabs/home', pathMatch: 'full' },
     ],
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/home',
     pathMatch: 'full',
   },
 ];

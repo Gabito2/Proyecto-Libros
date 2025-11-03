@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>Libros Favoritos</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <!-- Barra de búsqueda -->
+    <ion-searchbar placeholder="Buscar libro..." (ionInput)="onSearch($event)">
+    </ion-searchbar>
+
+    <!-- Refresher -->
+    <ion-refresher slot="fixed" (ionRefresh)="refresh_Done($event.target)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <!-- Lista de libros -->
+    <ion-list>
+        <ion-item *ngFor="let libro of (libros$ | async)!">
+            <ion-label>
+                <h2><strong>Título:</strong> {{ libro.titulo }}</h2>
+                <h2><strong>Autor:</strong> {{ libro.autor }}</h2>
+                <h2><strong>Género:</strong> {{ libro.genero }}</h2>
+                <h2><strong>Publicación:</strong> {{ libro.fecha_publicacion | date }}</h2>
+                <ion-img [src]="libro.image_url" style="max-height: 150px; object-fit: cover;"></ion-img>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+</ion-content>

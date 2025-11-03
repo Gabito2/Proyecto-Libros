@@ -1,0 +1,75 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/libros"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ id ? 'Editar libro' : 'Nuevo libro' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="libro_form" class="ion-padding" (ngSubmit)="save()">
+    <ion-list>
+
+      <ion-item>
+        <ion-input label="Título" labelPlacement="floating" formControlName="titulo" placeholder="Ingrese el título">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Autor" labelPlacement="floating" formControlName="autor" placeholder="Ingrese el autor">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Editorial" labelPlacement="floating" formControlName="editorial"
+          placeholder="Ingrese la editorial">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Fecha de Publicación</ion-label>
+        <ion-input type="date" formControlName="fecha_publicacion">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-select aria-label="Género" interface="action-sheet" placeholder="Seleccione un género"
+          formControlName="genero">
+          <ion-select-option value="Terror">Terror</ion-select-option>
+          <ion-select-option value="Comedia">Comedia</ion-select-option>
+          <ion-select-option value="Fantasía">Fantasía</ion-select-option>
+          <ion-select-option value="Historia">Historia</ion-select-option>
+          <ion-select-option value="Magia">Magia</ion-select-option>
+          <ion-select-option value="Horror">Horror</ion-select-option>
+          <ion-select-option value="Thriller">Thriller</ion-select-option>
+          <ion-select-option value="Aventura">Aventura</ion-select-option>
+          <ion-select-option value="Drama">Drama</ion-select-option>
+          <ion-select-option value="Ciencia Ficción">Ciencia Ficción</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Stock" labelPlacement="floating" type="number" formControlName="stock"
+          placeholder="Cantidad disponible">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="URL Imagen" labelPlacement="floating" formControlName="image_url"
+          placeholder="Ingrese la url"></ion-input>
+      </ion-item>
+    </ion-list>
+
+
+    <div class="ion-padding-top">
+      <ion-button expand="block" type="submit" [disabled]="libro_form.invalid">
+        Guardar
+      </ion-button>
+
+      <ion-button color="danger" expand="block" (click)="cancel()">
+        Cancelar
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

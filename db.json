@@ -1,0 +1,26 @@
+{
+  "libros": [
+    {
+      "id": "19d6",
+      "titulo": "Hora de Aventura",
+      "autor": " Pendleton Ward, Rebecca Sugar, Niki Yang, Steve Little",
+      "editorial": "S/N",
+      "fecha_publicacion": "2011-03-09",
+      "genero": "Aventura",
+      "stock": 100,
+      "image_url": "https://www.noroeste.com.mx/binrepository/600x391/0c0/0d0/none/12707/BWWS/hora_de_aventura-63201_NO1037260_MG8167252.jpg",
+      "favorito": false
+    },
+    {
+      "id": "2415",
+      "titulo": "Cien años de soledad",
+      "autor": "Gabriel García Márquez",
+      "editorial": " Planeta Mexicana, S.A. de C.V.",
+      "fecha_publicacion": "2007-03-08",
+      "genero": "Ciencia Ficción",
+      "stock": 1,
+      "image_url": "https://images.theconversation.com/files/637525/original/file-20241210-15-2k347s.jpg?ixlib=rb-4.1.0&q=45&auto=format&w=1000&fit=clip",
+      "favorito": true
+    }
+  ]
+}
